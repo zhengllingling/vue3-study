@@ -1,18 +1,19 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <span>{{count}}</span>
+    <button @click="add()">+</button>
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<script lang="ts">
+import { defineComponent } from "vue";
+import useCount from "./useCount";
+export default defineComponent({
+  name: "home",
+  setup(){
+    const { count , add } = useCount();
 
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+    return { count, add }
   }
-}
+})
 </script>
